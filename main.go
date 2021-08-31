@@ -49,7 +49,7 @@ func createUserHandler(c *gin.Context) {
 	}
 	c.JSON(200, gin.H{
 		"message": "successfully created user",
-		"data":    user})
+		"data": user})
 }
 
 
