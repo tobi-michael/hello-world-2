@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 )
-git
+
 func main() {
 	// create a new gin router
 	router := gin.Default()
@@ -17,10 +17,6 @@ func main() {
 
 func helloWorldhandler(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"wordings": "on the streets",
-		"name":     "tobi",
-		"data": gin.H{
-			"something": "something",
-		},
+		"message": "Scooby doo",
 	})
 }
