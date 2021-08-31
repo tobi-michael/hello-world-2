@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"os"
 )
 
 func main() {
@@ -10,6 +11,14 @@ func main() {
 
 	// define a single endpoint
 	router.POST("mich", helloWorldhandler)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+	_ = router.Run(":"+ port)
+}
+
 
 	// run the server on the port 3000
 	_ = router.Run(":3000")
