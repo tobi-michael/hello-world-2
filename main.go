@@ -10,7 +10,7 @@ func main() {
 	router := gin.Default()
 
 	// define a single endpoint
-	router.POST("mich", helloWorldhandler)
+	router.POST("/", helloWorldhandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
