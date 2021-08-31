@@ -21,8 +21,6 @@ func main() {
 
 
 	// run the server on the port 3000
-	_ = router.Run(":3000")
-}
 
 func helloWorldhandler(c *gin.Context) {
 	c.JSON(200, gin.H{
