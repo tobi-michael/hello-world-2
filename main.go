@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"os"
 )
@@ -18,11 +19,7 @@ func main() {
 	// define a single endpoint
 	router.POST("/", helloWorldhandler)
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "3000"
-	}
-	_ = router.Run(":" + port)
+
 
 	// CRUD endpoints for data
 
@@ -32,6 +29,11 @@ func main() {
 	router.PATCH("/updateUser", updateUserHandler)
 	router.DELETE("/deleteUser", deleteuserhandler)
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+	_= router.Run(":" + port)
 }
 
 
@@ -46,10 +48,11 @@ func createUserHandler(c *gin.Context) {
 		})
 		return
 
+		c.JSON(200, gin.H{
+			"message": "succesfully created user",
+			"data": user,
+		})
 	}
-	c.JSON(200, gin.H{
-		"message": "successfully created user",
-		"data": user})
 }
 
 
@@ -72,6 +75,7 @@ func getSingleUserHandler(c *gin.Context)  {
 	})
 }
 func updateUserHandler(c *gin.Context) {
+	fmt.Println("bjbj")
 	c.JSON(200, gin.H{
 		"message": "User updated!",
 	})
